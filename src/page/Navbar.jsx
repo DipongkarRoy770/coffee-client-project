@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
     const navInfo = <> 
-        <li className="text-xl mr-2">Home</li>
-        <li className="text-xl mr-2">Add Coffee</li>
+        <Link to='/' className="text-xl mr-2">Home</Link>
+        <Link to='addCoffee' className="text-xl mr-2">Add Coffee</Link>
         <li className="text-xl mr-2">Update Coffee</li>
         <li className="text-xl mr-2">About</li>
         <li className="text-xl mr-2">Contact</li>
