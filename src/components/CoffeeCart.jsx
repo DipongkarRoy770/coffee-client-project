@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const CoffeeCart = ({ coffees }) => {
+const CoffeeCart = ({ coffees, loadedCoffees, setLoadedCoffees }) => {
     const { _id, name, tests, photoUrl, details, supplier, category, chef } = coffees;
-    console.log(coffees)
+    // console.log(coffees)
 
 
     const handleDelete = (_id) => {
@@ -32,6 +33,8 @@ const CoffeeCart = ({ coffees }) => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            const remaining = loadedCoffees.filter(cof => cof._id !== _id);
+                            setLoadedCoffees(remaining)
                         }
                     })
 
@@ -39,6 +42,8 @@ const CoffeeCart = ({ coffees }) => {
         });
 
     }
+
+
     return (
         <div className="card card-side bg-base-100 shadow-xl">
             <figure className="h-72 w-1/3 rounded-md"><img src={photoUrl} alt="Movie" /></figure>
@@ -51,7 +56,9 @@ const CoffeeCart = ({ coffees }) => {
                 <h4>Chef:{chef}</h4>
                 <div className="card-actions">
                     <button className="btn btn-primary">View</button>
-                    <button className="btn btn-primary">Edit</button>
+                    <Link to={`/updateCoffee/${_id}`}>
+
+                        <button className="btn btn-primary">Edit</button></Link>
                     <button onClick={() => handleDelete(_id)} className="btn btn-primary">X</button>
                 </div>
             </div>

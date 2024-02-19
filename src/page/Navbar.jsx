@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     const navInfo = <> 
         <Link to='/' className="text-xl mr-2">Home</Link>
-        <Link to='addCoffee' className="text-xl mr-2">Add Coffee</Link>
-        <li className="text-xl mr-2">Update Coffee</li>
+        <Link to='/addCoffee' className="text-xl mr-2">Add Coffee</Link>
         <li className="text-xl mr-2">About</li>
         <li className="text-xl mr-2">Contact</li>
     </>
@@ -20,7 +19,7 @@ const Navbar = () => {
                         {navInfo}
                     </ul>
                 </div>
-                <h1 className="text-xl">Coffee</h1>
+                <h1 className="text-xl">CoffeeUser</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
